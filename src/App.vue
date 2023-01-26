@@ -48,7 +48,8 @@ onMounted(() => {
 </script>
 
 <template>
-	<main class="app">
+	<main class="app" id="cardtodo">
+		<h1>TODOAPP</h1>
 		
 		<section class="greeting">
 			<h2 class="title">
@@ -67,7 +68,7 @@ onMounted(() => {
 					type="text" 
 					name="content" 
 					id="content" 
-					placeholder="e.g. make a video"
+					placeholder="e.g. make lasagna"
 					v-model="input_content" />
 				
 				<h4>Pick a category</h4>
@@ -103,9 +104,10 @@ onMounted(() => {
 
 		<section class="todo-list">
 			<h3>TODO LIST</h3>
+	
 			<div class="list" id="todo-list">
 
-				<div v-for="todo in todos_asc" :class="`todo-item ${todo.done && 'done'}`">
+				<div v-for="todo in todos_asc" :key="todo" :class="`todo-item ${todo.done && 'done'}`">
 					<label>
 						<input type="checkbox" v-model="todo.done" />
 						<span :class="`bubble ${
@@ -126,6 +128,6 @@ onMounted(() => {
 
 			</div>
 		</section>
-
 	</main>
+	<p class="copy">by julia stamborovski</p>
 </template>
